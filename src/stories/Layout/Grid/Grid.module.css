@@ -1,0 +1,32 @@
+.grid {
+    width: auto;
+    height: auto;
+    margin: auto;
+    position: relative;
+    display: grid;
+}
+
+
+@media (min-width: 240px) {
+    .menu_grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .menu_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1400px) {
+    .menu_grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

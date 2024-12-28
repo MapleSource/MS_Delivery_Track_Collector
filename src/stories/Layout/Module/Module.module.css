@@ -1,0 +1,17 @@
+@media (min-width: 240px) {
+    .module {
+        width: calc(100% - 40px);
+        height: calc(100vh - 120px);
+        margin: auto;
+        padding: 0px;
+        position: relative;
+        display: block;
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .module {
+        padding: 20px;
+    }
+}

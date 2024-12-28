@@ -1,0 +1,106 @@
+.headers {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.body {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    height: auto;
+    margin: 15px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    background-color: #eeeeee;
+    border-radius: 8px;
+}
+
+.headers p {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+.body p {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.input {
+    width: calc(100% - 30px);
+    max-width: 320px;
+    height: 48px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-left: 12px;
+    padding-right: 18px;
+    position: relative;
+    display: block;
+    background: #eee;
+    border: none;
+    box-shadow: var(--input_shadow);
+    border-radius: 12px;
+    font-family: "Quicksand", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--input_color);
+    outline: none;
+    transition: 0.2s;
+}
+
+.button {
+    width: 500px;
+    max-width: 220px;
+    height: 48px;
+    margin: auto;
+    margin-top: 25px;
+    padding-left: 12px;
+    padding-right: 18px;
+    position: relative;
+    display: block;
+    background: #93d24e;
+    border: none;
+    box-shadow: var(--input_shadow);
+    border-radius: 12px;
+    font-family: "Quicksand", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: white;
+    outline: none;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 130px);
+    margin: auto;
+    padding: 16px;
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    background-color: var(--white);
+    overflow-y: auto;
+}

@@ -1,0 +1,63 @@
+.toggle {
+    width: 200px;
+    height: 36px;
+    margin: auto;
+    position: relative;
+    display: block;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--inverse-background);
+    color: var(--text);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.toggle_switch {
+    width: calc(50% - 5px);
+    height: 26px;
+    top: 5px;
+    margin-left: 5px;
+    position: absolute;
+    display: block;
+    border-radius: 18px;
+    background-color: var(--foreground);
+    transition: 0.4s;
+}
+
+.toggle_switch_dark {
+    width: calc(50% - 5px);
+    height: 26px;
+    top: 5px;
+    margin-left: 100px;
+    position: absolute;
+    display: block;
+    border-radius: 18px;
+    background-color: #212635;
+    transition: 0.4s;
+}
+
+.icon_grid {
+    width: calc(100% - 16px);
+    height: 26px;
+    margin: auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 20px auto;
+}
+
+.icon {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    display: block;
+}
+
+.icon_dark {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    display: block;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(343deg) brightness(102%) contrast(101%);
+}

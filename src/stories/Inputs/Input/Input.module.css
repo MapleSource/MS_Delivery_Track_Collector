@@ -1,0 +1,14 @@
+.input {
+    width: 90%;
+    max-width: 200px;
+    height: 40px;
+    margin: auto;
+    padding: 12px;
+    padding-right: 52px;
+    position: relative;
+    display: block;
+    background-color: var(--border);
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+}

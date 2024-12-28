@@ -1,0 +1,28 @@
+.section {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    position: fixed;
+    display: block;
+    background-color: var(--background);
+    z-index: 0;
+}
+
+@media (min-width: 240px) {
+    .grid {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        margin: auto;
+        position: relative;
+        display: grid;
+        grid-template-columns: 60px auto;
+        grid-gap: 0px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 240px auto;
+    }
+}

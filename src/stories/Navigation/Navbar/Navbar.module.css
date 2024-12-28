@@ -1,0 +1,43 @@
+.content {
+    width: 98%;
+    height: 60px;
+    margin: auto;
+    padding: 8px;
+    position: relative;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.logo {
+    width: 400px;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    display: block;
+    border-radius: 8px 0px 0px 8px;
+    overflow: hidden;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+}
+
+
+@media (min-width: 240px) {
+    .movil_data {
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1024px) {
+    .movil_data {
+        width: auto;
+        height: auto;
+        overflow: inherit;
+    }
+}

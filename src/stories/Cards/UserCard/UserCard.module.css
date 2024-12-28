@@ -1,0 +1,31 @@
+.card {
+    width: auto;
+    max-width: 280px;
+    height: 40px;
+    margin: auto;
+    position: relative;
+    display: block;
+}
+
+.image {
+    width: 40px;
+    height: auto;
+    margin: auto;
+    padding: 5px;
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 2px var(--shadow);
+}
+
+.mail {
+    font-family: "Nunito";
+    font-size: 16px;
+    height: 19px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+}
