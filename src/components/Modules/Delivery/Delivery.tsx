@@ -7,6 +7,9 @@ import DeliveryTable from "@/stories/DataDisplay/DeliveryTable/DeliveryTable";
 import { deliveryPackageHeaders } from "@/data/headers";
 import Styles from "./Delivery.module.css";
 import Modal from "@/stories/Modals/Modal/Modal";
+import Button from "@/stories/Buttons/Button/Button";
+import Grid from "@/stories/Layout/Grid/Grid";
+import Divider from "@/stories/Utilities/Divider/Divider";
 
 interface Package {
   package_id: string;
@@ -55,11 +58,11 @@ const Delivery: React.FC = () => {
 
   const handleComplete = async () => {
     if (!signature || !photo || !selectedPackage) {
-      // if (typeof window !== "undefined") {
-      //   message.error(
-      //     "Se requiere la firma y la evidencia para completar la entrega"
-      //   );
-      // }
+      if (typeof window !== "undefined") {
+        message.error(
+          "Se requiere la firma y la evidencia para completar la entrega"
+        );
+      }
       return;
     }
 
@@ -70,9 +73,9 @@ const Delivery: React.FC = () => {
         package_evidence: photo,
         package_status: "Entregado",
       });
-      // if (typeof window !== "undefined") {
-      //   message.success("Entrega completada exitosamente");
-      // }
+      if (typeof window !== "undefined") {
+        message.success("Entrega completada exitosamente");
+      }
       fetchPackages();
       closeModal();
     } catch (error) {
@@ -84,9 +87,9 @@ const Delivery: React.FC = () => {
 
   const handleProblem = async () => {
     if (!problem || !selectedPackage) {
-      // if (typeof window !== "undefined") {
-      //   message.error("Seleccione un problema para reportar");
-      // }
+      if (typeof window !== "undefined") {
+        message.error("Seleccione un problema para reportar");
+      }
       return;
     }
 
@@ -95,15 +98,15 @@ const Delivery: React.FC = () => {
         package_id: selectedPackage.package_id,
         package_status: problem,
       });
-      // if (typeof window !== "undefined") {
-      //   message.success("Problema reportado exitosamente");
-      // }
+      if (typeof window !== "undefined") {
+        message.success("Problema reportado exitosamente");
+      }
       fetchPackages();
       closeModal();
     } catch (error) {
-      // if (typeof window !== "undefined") {
-      //   message.error("Error al reportar el problema");
-      // }
+      if (typeof window !== "undefined") {
+        message.error("Error al reportar el problema");
+      }
     }
   };
 
@@ -139,9 +142,9 @@ const Delivery: React.FC = () => {
         stream.getTracks().forEach((track) => track.stop());
       }
     } catch (error) {
-      // if (typeof window !== "undefined") {
-      //   message.error("Error al tomar la foto");
-      // }
+      if (typeof window !== "undefined") {
+        message.error("Error al tomar la foto");
+      }
     }
   };
 
@@ -149,13 +152,15 @@ const Delivery: React.FC = () => {
     <Module>
       <h2>Paquetes de Repartidor-01</h2>
       <br />
-      <a
-        target="_blank"
-        href={packages[0]?.package_group_route}
-        style={{ color: "blue" }}
-      >
-        Ruta mas optima en Google Maps
-      </a>
+      {packages.length > 0 && (
+        <a
+          target="_blank"
+          href={packages[0]?.package_group_route}
+          style={{ color: "blue" }}
+        >
+          Ruta mas optima en Google Maps
+        </a>
+      )}
       <br />
       <br />
       <DeliveryTable
@@ -167,6 +172,17 @@ const Delivery: React.FC = () => {
             onClick={() => {
               setSelectedPackage(pkg);
               setIsModalOpen(true);
+            }}
+            className={Styles.button}
+            style={{
+              background:
+                pkg.package_status !== "En Reparto"
+                  ? "var(--background)"
+                  : "var(--primary)",
+              border:
+                pkg.package_status !== "En Reparto" ? "1px solid #ccc" : "",
+              cursor:
+                pkg.package_status !== "En Reparto" ? "not-allowed" : "pointer",
             }}
           >
             {pkg.package_status === "Entregado" ||
@@ -196,34 +212,41 @@ const Delivery: React.FC = () => {
                 onEnd={handleEnd}
               />
               <br />
-              <button onClick={handleTakePhoto}>Tomar Foto</button>
               {photo && (
-                <img
-                  src={photo}
-                  alt="Evidencia"
-                  style={{ width: "100%", marginTop: "10px" }}
-                />
+                <img src={photo} alt="Evidencia" className={Styles.frame} />
               )}
-              <button disabled={!signature || !photo} onClick={handleComplete}>
-                Completar Entrega
-              </button>
-              <select
-                defaultValue="Reportar Problema"
-                onChange={(e) => setProblem(e.target.value)}
-                style={{ width: "100%", marginTop: "10px" }}
-              >
-                <option value="Domicilio no encontrado">
-                  Domicilio no encontrado
-                </option>
-                <option value="No se recibió">No se recibió</option>
-                <option value="No había nadie">No había nadie</option>
-                <option value="Paquete extraviado">Paquete extraviado</option>
-                <option value="Paquete dañado">Paquete dañado</option>
-                <option value="Paquete robado">Paquete robado</option>
-              </select>
-              <button onClick={handleProblem} style={{ marginTop: "10px" }}>
-                Reportar Problema
-              </button>
+              <br />
+              <Grid customClass="responsive" rowGap="10px">
+                <Button onClick={handleTakePhoto} label="Tomar foto" />
+                <Button
+                  onClick={handleComplete}
+                  label="Completar Entrega"
+                  disabled={!signature || !photo}
+                />
+              </Grid>
+              <Divider />
+              <Grid customClass="responsive" rowGap="10px">
+                <select
+                  defaultValue="Reportar Problema"
+                  onChange={(e) => setProblem(e.target.value)}
+                  className={Styles.select}
+                >
+                  <option value="Default">Seleccionar problema</option>
+                  <option value="Domicilio no encontrado">
+                    Domicilio no encontrado
+                  </option>
+                  <option value="No se recibió">No se recibió</option>
+                  <option value="No había nadie">No había nadie</option>
+                  <option value="Paquete extraviado">Paquete extraviado</option>
+                  <option value="Paquete dañado">Paquete dañado</option>
+                  <option value="Paquete robado">Paquete robado</option>
+                </select>
+                <Button
+                  onClick={handleProblem}
+                  label="Reportar Problema"
+                  background="#E57373"
+                />
+              </Grid>
             </div>
           )}
         </Modal>

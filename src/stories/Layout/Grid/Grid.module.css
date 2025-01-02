@@ -30,3 +30,15 @@
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+@media (min-width: 240px) {
+    .responsive {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

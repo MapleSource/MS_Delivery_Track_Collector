@@ -5,3 +5,31 @@
     border: 1px solid black;
     border-radius: 8px;
 }
+
+.frame {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    position: relative;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.select {
+    width: auto;
+    height: 36px;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+}
+
+.button {
+    padding: 4px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+    color: var(--text);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+}

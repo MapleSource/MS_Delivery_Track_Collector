@@ -4,6 +4,7 @@
     border-radius: 8px;
     background-color: var(--primary);
     color: var(--text);
+    font-weight: bold;
     cursor: pointer;
     transition: 0.4s;
 }

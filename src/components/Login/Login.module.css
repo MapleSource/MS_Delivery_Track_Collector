@@ -154,7 +154,7 @@
     padding-right: 18px;
     position: relative;
     display: block;
-    background: #eee;
+    background: var(--foreground);
     border: 2px solid var(--primary);
     box-shadow: var(--input_shadow);
     border-radius: 8px;
@@ -169,18 +169,24 @@
 }
 
 
-.input_box {
-    width: auto;
-    max-width: 320px;
-    height: 80px;
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    position: relative;
-    display: block;
+@media (min-width: 240px) {
+    .input_box {
+        width: auto;
+        max-width: 320px;
+        height: 60px;
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        position: relative;
+        display: block;
+    }
 }
 
-
+@media (min-width: 1024px) {
+    .input_box {
+        height: 80px;
+    }
+}
 
 .user_icon {
     width: auto;

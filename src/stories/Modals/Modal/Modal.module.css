@@ -12,15 +12,16 @@
 }
 
 .modal {
-    width: auto;
+    width: 500px;
     max-width: 90%;
     height: auto;
-    max-width: 90%;
-    background: white;
-    border-radius: 8px;
+    max-height: 90%;
+    background: var(--foreground);
+    border-radius: 12px;
+    border: 1px solid var(--border);
     padding: 20px;
-    width: 500px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
 }
 
 .header {
@@ -34,6 +35,7 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--text);
 }
 
 .content {
