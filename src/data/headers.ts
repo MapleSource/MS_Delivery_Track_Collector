@@ -35,7 +35,6 @@ export const validatePackageHeaders: IHeader[] = [
 ];
 
 export const deliveryPackageHeaders: IHeader[] = [
-  { header: "ID", key: "package_id" },
   { header: "Proximo", key: "package_distance" },
   { header: "Estatus", key: "package_status" },
 ];

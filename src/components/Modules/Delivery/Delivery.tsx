@@ -197,10 +197,19 @@ const Delivery: React.FC = () => {
         <Modal title="Completar Entrega" onClose={() => setIsModalOpen(false)}>
           {selectedPackage && (
             <div>
-              <p>Persona que recibe: {selectedPackage.recipient_name}</p>
-              <p>Direccion: {selectedPackage.recipient_address}</p>
+              <p>
+                <b>Paquete:</b> {selectedPackage.package_id}
+              </p>
+              <p>
+                <b>Persona que recibe:</b> {selectedPackage.recipient_name}
+              </p>
+              <p>
+                <b>Direccion:</b> {selectedPackage.recipient_address}
+              </p>
               <br />
-              <p>Firma:</p>
+              <p>
+                <b>Firma:</b>
+              </p>
               <SignatureCanvas
                 ref={sigCanvas}
                 penColor="black"
